@@ -18,22 +18,22 @@ output_schema:
   properties:
     instance_code:
       type: string
-      description: Approval instance Code (审批实例 Code)
+      description: Approval instance Code
     approval_code:
       type: string
-      description: Approval definition Code (审批定义 Code)
+      description: Approval definition Code
     status:
       type: string
       description: Instance status (always 'APPROVED' for this event)
     operate_time:
       type: string
-      description: Status change timestamp (状态变更时间戳)
+      description: Status change timestamp
     app_id:
       type: string
       description: Feishu App ID that generated this event
     event_id:
       type: string
-      description: Unique event ID for idempotency (用于幂等性的唯一事件 ID)
+      description: Unique event ID for idempotency
     uuid:
       type: string
       description: Approval instance UUID

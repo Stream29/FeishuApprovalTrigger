@@ -1,5 +1,5 @@
 subscription_schema:
-  # 飞书应用凭证
+  # Feishu application credentials
   - name: "app_id"
     type: "secret-input"
     required: true
@@ -26,7 +26,7 @@ subscription_schema:
       en_US: "Your Feishu application secret from the developer console."
       zh_Hans: "位于飞书开发者后台 '凭证与基础信息' 页面的 App Secret。"
 
-  # 飞书事件订阅验证令牌
+  # Feishu event subscription verification token
   - name: "verification_token"
     type: "secret-input"
     required: true
@@ -40,7 +40,7 @@ subscription_schema:
       en_US: "The verification token from Feishu 'Events and Callbacks' page."
       zh_Hans: "位于飞书开发者后台 '事件与回调' 页面的验证令牌。"
 
-  # 飞书事件订阅加密密钥 (强烈推荐配置以提高安全性)
+  # Feishu event subscription encryption key (strongly recommended for security)
   - name: "encrypt_key"
     type: "secret-input"
     required: false

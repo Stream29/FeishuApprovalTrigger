@@ -1,2 +1,2 @@
-# Package marker for rsshub_trigger events
+# Package marker for feishu_approval_trigger events
 
