@@ -373,21 +373,7 @@ Trigger Dify Workflow
 
 ### ✅ Idempotency Implementation
 
-Feishu uses an "at-least-once delivery" strategy, where the same event may be pushed multiple times. Recommend implementing in Dify workflow:
-
-```python
-# Example: Check if already processed in code node
-def main(event_id: str) -> dict:
-    # Check using Redis or database
-    if is_processed(event_id):
-        return {"skip": True}
-
-    # Mark as processed
-    mark_as_processed(event_id)
-
-    # Execute business logic
-    ...
-```
+Feishu uses an "at-least-once delivery" strategy, where the same event may be pushed multiple times.
 
 ### ✅ Monitoring Recommendations
 
@@ -395,44 +381,6 @@ def main(event_id: str) -> dict:
 - Set alerts: consecutive failures > 3 times
 - Regularly check Feishu application subscription status
 
-## Developer Reference
-
-### File Structure
-
-```
-feishu-approval-trigger/
-├── manifest.yaml                 # Plugin metadata
-├── requirements.txt              # Python dependencies
-├── main.py                       # Plugin entry point
-├── provider/
-│   ├── feishu.yaml              # Subscription configuration (credential definitions)
-│   └── feishu.py                # Core logic (signature, decryption, routing)
-└── events/
-    └── approval/
-        ├── approval_approved.yaml   # Event contract (output variable definitions)
-        └── approval_approved.py     # Event handler (filtering, transformation)
-```
-
-### Dependencies
-
-```txt
-dify_plugin==0.6.0b14
-lark-oapi==1.4.23
-pycryptodome==3.21.0
-```
-
-### Tech Stack
-
-- **Encryption Library**: pycryptodome (AES-256-CBC)
-- **Framework**: Dify Plugin SDK 0.6.0+
-- **Minimum Dify Version**: 1.10.0
-
-## Limitations
-
-- This plugin only receives events, does not manage Feishu application creation and configuration
-- Users must manually complete application configuration and publishing in Feishu Developer Console
-- Only supports triggering for approved (APPROVED) status, other statuses are automatically ignored
-- Does not support OAuth authentication (uses App ID + App Secret)
 
 ## Related Links
 
@@ -441,9 +389,6 @@ pycryptodome==3.21.0
 - [Feishu Event Subscription Guide](https://open.feishu.cn/document/server-docs/event-subscription-guide/overview)
 - [Dify Trigger Plugin Documentation](https://docs.dify.ai/plugin-dev-en/0222-trigger-plugin)
 
-## License
-
-Please refer to the LICENSE file in the project root directory.
 
 ---
 
