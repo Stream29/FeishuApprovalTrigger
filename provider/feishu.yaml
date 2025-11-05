@@ -40,6 +40,20 @@ subscription_schema:
       en_US: "The verification token from Feishu 'Events and Callbacks' page."
       zh_Hans: "位于飞书开发者后台 '事件与回调' 页面的验证令牌。"
 
+  # 飞书事件订阅加密密钥 (强烈推荐配置以提高安全性)
+  - name: "encrypt_key"
+    type: "secret-input"
+    required: false
+    label:
+      en_US: "Encrypt Key (Recommended)"
+      zh_Hans: "飞书事件加密密钥（推荐）"
+    placeholder:
+      en_US: "Enter your Encrypt Key (leave empty to use plaintext mode)"
+      zh_Hans: "输入你的加密密钥（留空则使用明文模式，不推荐）"
+    help:
+      en_US: "STRONGLY RECOMMENDED: The Encrypt Key from Feishu 'Events and Callbacks' -> 'Security Policy' page. Enables signature verification and payload encryption. Without this, data is transmitted in plaintext (insecure)."
+      zh_Hans: "强烈推荐配置：位于飞书开发者后台 '事件与回调' -> '安全策略' 页面的加密密钥。启用签名验证和负载加密。不配置则使用明文传输（不安全）。"
+
 events:
   - events/approval/approval_approved.yaml
 
