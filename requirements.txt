@@ -1,1 +1,2 @@
 dify_plugin==0.6.0b14
+lark-oapi==1.4.23

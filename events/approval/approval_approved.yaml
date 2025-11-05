@@ -1,0 +1,47 @@
+identity:
+  name: approval_approved  # Event unique identifier
+  author: YourName
+  label:
+    en_US: Feishu Approval (Approved)
+    zh_Hans: 飞书审批通过
+
+description:
+  en_US: Triggers when a Feishu approval instance status is 'APPROVED'.
+  zh_Hans: 当飞书审批实例状态变为 'APPROVED' 时触发。
+
+parameters: []
+
+# Define output variables that will be passed to Dify workflow
+output_schema:
+  type: object
+  description: Feishu approval approved event data
+  properties:
+    instance_code:
+      type: string
+      description: Approval instance Code (审批实例 Code)
+    approval_code:
+      type: string
+      description: Approval definition Code (审批定义 Code)
+    status:
+      type: string
+      description: Instance status (always 'APPROVED' for this event)
+    operate_time:
+      type: string
+      description: Status change timestamp (状态变更时间戳)
+    app_id:
+      type: string
+      description: Feishu App ID that generated this event
+    event_id:
+      type: string
+      description: Unique event ID for idempotency (用于幂等性的唯一事件 ID)
+    uuid:
+      type: string
+      description: Approval instance UUID
+  required:
+    - instance_code
+    - approval_code
+    - status
+
+extra:
+  python:
+    source: events/approval/approval_approved.py

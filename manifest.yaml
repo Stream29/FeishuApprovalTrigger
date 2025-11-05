@@ -1,14 +1,12 @@
-author: langgenius
-created_at: "2024-10-16T00:00:00Z"
+author: stream
+created_at: "2025-01-01T00:00:00Z"
 description:
-  en_US: RSS Hub webhook trigger for receiving feed update notifications.
-  ja_JP: RSS Hub の Webhook トリガー。フィード更新通知を受信します。
-  zh_Hans: RSS Hub 的 Webhook 触发器，用于接收订阅源更新通知。
-icon: icon.svg
+  en_US: Feishu (Lark) approval webhook trigger for receiving approval event notifications.
+  zh_Hans: 飞书审批 Webhook 触发器，用于接收审批事件通知。
+icon: img.png
 label:
-  en_US: RSS Hub
-  ja_JP: RSS Hub
-  zh_Hans: RSS Hub
+  en_US: Feishu Approval Trigger
+  zh_Hans: 飞书审批触发器
 meta:
   arch:
     - amd64
@@ -19,10 +17,11 @@ meta:
     version: "3.12"
   version: 0.0.1
   minimum_dify_version: 1.10.0
-name: rsshub_trigger
+  minimum_sdk_version: 0.6.0
+name: feishu_approval_trigger
 plugins:
   triggers:
-    - provider/rsshub.yaml
+    - provider/feishu.yaml
 resource:
   memory: 1048576
   permission:
